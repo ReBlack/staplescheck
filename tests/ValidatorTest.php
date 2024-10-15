@@ -1,7 +1,10 @@
 <?php
 
+namespace Staplescheck\Tests;
+
 use PHPUnit\Framework\TestCase;
 use Staplescheck\Validator;
+
 
 class ValidatorTest extends TestCase
 {
@@ -17,7 +20,7 @@ class ValidatorTest extends TestCase
         $validator = new Validator($staples);
 
         if ($isException) {
-            $this->expectException(InvalidArgumentException::class);
+            $this->expectException(\InvalidArgumentException::class);
         }
 
         $this->assertEquals($expected, $validator->isValid());
@@ -39,6 +42,7 @@ class ValidatorTest extends TestCase
             ['(,)', true, false],
             ['(\p)', false, true],
             ['()\n()\r ( ),(\t )', true, false],
+            ["()\n", true, false]
         ];
     }
 }

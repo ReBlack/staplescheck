@@ -59,6 +59,10 @@ class Validator
                 case '\\':
                     break;
 
+                case "\n":
+                case "\t":
+                case "\r":
+                    break;
                 case 'n':
                 case 't':
                 case 'r':
